@@ -1,0 +1,260 @@
+.header {
+    padding: 0px 16px;
+    background: url(/img/bc.png) top no-repeat;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    &__top {
+        
+    }
+
+    &__bottom {
+        
+    }
+}
+.top-header {
+    &__row {
+        height: 90px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__column {
+        flex: 0 1 50%;
+    }
+    &__column:nth-child(2) {
+        align-self: flex-start;
+        flex: 0 0 190px;
+        padding: 25px 0px 0px 0px;
+        text-align: center;
+    }
+
+    &__menu {
+    }
+
+    &__logo {
+    }
+
+    &__contact {
+    }
+}
+.menu {
+    &__icon {
+    }
+
+    &__body {
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 110px 130px 180px;
+    }
+
+    &__item {
+        flex: 0 1 20%;
+        margin: 1px 0px;
+    }
+
+    &__link {
+        transition: all 0.3s;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        display: inline-flex;
+        height: 27px;
+        font-size: 14px;
+        font-family: "Play Bold";
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+        padding: 0 22px;
+        text-align: left;
+        &:hover {
+            background-color: rgb(6, 130, 146);
+            border-radius: 20px;
+        }
+    }
+}
+.icon-menu {
+}
+.logo-header {
+    &__title {
+        font-size: 48px;
+        font-family: "Play Bold";
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+    }
+
+    &__sub-title {
+        font-size: 14px;
+        font-family: "Roboto Light";
+        color: rgb(255, 255, 255);
+        line-height: 2;
+    }
+}
+.contact-header {
+    &__row {
+        display: flex;
+    }
+
+    &__column {
+        border-right: 1px solid white;
+        padding: 0px 30px;
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    &__item {
+        &_icon {
+            padding-left: 37px;
+            background: url(/img/icons/tel.png) left no-repeat;
+        }
+    }
+
+    &__title {
+        font-size: 12px;
+        font-family: "Roboto Light";
+        color: white;
+        margin-bottom: 5px;
+    }
+
+    &__tel {
+        font-family: "Roboto Black";
+        color: white;
+        font-size: 18px;
+    }
+}
+.bottom-header {
+    &__row {
+        height: 63px;
+        padding: 0px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex: 0 1 calc(50% - 95px);
+    }
+
+    &__left {
+    }
+}
+.left-header-bottom {
+    &__menu {
+    }
+
+    &__right {
+    }
+}
+.menu-left-header-bottom {
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        &_key {
+            margin-right: 54px;
+            padding-left: 30px;
+            background: url(/img/icons/key.png) no-repeat left;
+            color: #999999;
+            display: inline-block;
+            line-height: 24px;
+        }
+
+        &_face {
+            margin-right: 54px;
+            padding-left: 30px;
+            background: url(/img/icons/face.png) no-repeat left;
+            color: rgb(26, 185, 206);
+            display: inline-block;
+            line-height: 24px;
+        }
+
+        &_sms {
+            padding-left: 30px;
+            background: url(/img/icons/sms.png) no-repeat left;
+            color: rgb(26, 185, 206);
+            display: inline-block;
+            line-height: 20px;
+        }
+    }
+    &__link {
+        font-size: 14px;
+        font-family: "Roboto Light";
+        border-bottom: 1px dotted;
+    }
+}
+.right-header-bottom {
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__column{
+        margin-right: 40px;
+    }
+    &__column:nth-child(3){
+        margin: 0;
+    }
+
+    &__callback {
+        
+        &_tel-back {
+            font-family: 'Roboto Light';
+            background: url(/img/icons/tel-back.png)no-repeat left;
+            padding-left: 32px;
+            line-height: 20px;
+            display: inline-block;
+            color: rgb(26, 185, 206);
+            span{
+                border-bottom: 1px dotted;
+            }
+        }
+    }
+
+    &__calendar {
+        line-height: 18px;
+        display: inline-block;
+        padding-left: 37px;
+        font-size: 12px;
+        font-family: 'Roboto Light';
+        color: #999999;
+        span{
+            font-family: 'Roboto Black';
+        }
+        &_calendar {
+            background: url(/img/icons/calendar.png)no-repeat left;
+        }
+    }
+
+    &__cart {
+        width: 43px;
+        height: 43px;
+        display: inline-block;
+        position: relative;
+        background: url(/img/icons/basket.png) 0 0 no-repeat;
+        span{
+            padding: 0px 11px;
+            border-radius: 20px;
+            line-height:  25px;
+            background-color: #f68038;
+            position: absolute;
+            right: 0;
+            font-size: 18px;
+            font-family: 'Roboto Bold';
+            color: white;
+            transform: translate(70%,0px);
+        }
+    }
+}
+
+
+
+  
+
+
+
+
