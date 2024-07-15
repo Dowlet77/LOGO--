@@ -1,20 +1,29 @@
+body.lock {
+    overflow: hidden;
+}
 .header {
-    padding: 0px 16px;
     background: url(/img/bc.png) top no-repeat;
-    max-width: 1180px;
-    margin: 0 auto;
+    @media (max-width: 800px) {
+        background-image: none;
+    }
 
     &__top {
-        
+        @media (max-width: 800px) {
+            background-color: #009db1;
+        }
+        max-width: 1180px;
+        margin: 0 auto;
     }
 
     &__bottom {
-        
+        max-width: 1180px;
+        margin: 0 auto;
     }
 }
 .top-header {
     &__row {
         height: 90px;
+        padding: 0px 16px;
         display: flex;
         align-items: center;
     }
@@ -23,10 +32,12 @@
         flex: 0 1 50%;
     }
     &__column:nth-child(2) {
-        align-self: flex-start;
         flex: 0 0 190px;
-        padding: 25px 0px 0px 0px;
         text-align: center;
+        @media (min-width: 800px) {
+            align-self: flex-start;
+            padding: 25px 0px 0px 0px;
+        }
     }
 
     &__menu {
@@ -40,14 +51,86 @@
 }
 .menu {
     &__icon {
+        display: none;
+
+        @media (max-width: 992px) {
+            display: block;
+            position: relative;
+            width: 30px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 5;
+
+            span,
+            &::before,
+            &::after {
+                content: "";
+                transition: all 300ms ease 0ms;
+                right: 0;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: white;
+            }
+
+            &::before {
+                top: 0;
+            }
+
+            &::after {
+                bottom: 0;
+            }
+
+            span {
+                top: calc(50% - 1px);
+            }
+
+            .menu-open & {
+                span {
+                    width: 0;
+                }
+
+                &::before {
+                    top: calc(50% - 1px);
+                    transform: rotate(-45deg);
+                }
+
+                &::after {
+                    bottom: calc(50% - 1px);
+                    transform: rotate(45deg);
+                }
+            }
+        }
     }
 
+    &__body.active {
+        display: block;
+        .menu__list {
+            display: block;
+            text-align: center;
+            margin-top: 80px;
+        }
+    }
     &__body {
+        @media (max-width: 992px) {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.637);
+            overflow: auto;
+        }
     }
 
     &__list {
         display: grid;
         grid-template-columns: 110px 130px 180px;
+        @media (max-width: 1065px) {
+            grid-template-columns: 103px 112px 137px;
+        }
     }
 
     &__item {
@@ -68,6 +151,9 @@
         text-decoration: underline;
         padding: 0 22px;
         text-align: left;
+        @media (max-width: 1065px) {
+            padding: 0px 11px;
+        }
         &:hover {
             background-color: rgb(6, 130, 146);
             border-radius: 20px;
@@ -94,13 +180,30 @@
 .contact-header {
     &__row {
         display: flex;
+        @media (max-width: 1010px) {
+            justify-content: flex-end;
+        }
     }
 
     &__column {
         border-right: 1px solid white;
         padding: 0px 30px;
+        @media (max-width: 900px) {
+            border-right: none;
+        }
         &:last-child {
             border: 0;
+        }
+        @media (max-width: 1130px) {
+            padding: 0px 15px;
+        }
+        @media (max-width: 600px) {
+            padding: 0;
+        }
+    }
+    @media (max-width: 900px) {
+        &__column:last-child {
+            display: none;
         }
     }
 
@@ -108,6 +211,13 @@
         &_icon {
             padding-left: 37px;
             background: url(/img/icons/tel.png) left no-repeat;
+            @media (max-width: 1010px) {
+                background-size: 16px;
+            }
+            @media (max-width: 600px) {
+                background-image: none;
+                padding: 0;
+            }
         }
     }
 
@@ -116,21 +226,42 @@
         font-family: "Roboto Light";
         color: white;
         margin-bottom: 5px;
+        @media (max-width: 1010px) {
+            font-size: 10px;
+            margin-bottom: 2.5px;
+        }
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 
     &__tel {
         font-family: "Roboto Black";
         color: white;
         font-size: 18px;
+        @media (max-width: 1010px) {
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            font-size: 0;
+            background: url(/img/icons/tel.png) left no-repeat;
+            width: 19px;
+            height: 25px;
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 }
 .bottom-header {
     &__row {
+        padding: 0px 38px;
         height: 63px;
-        padding: 0px 22px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 600px) {
+            padding: 0px 15px;
+        }
     }
 
     &__column {
@@ -139,12 +270,11 @@
 
     &__left {
     }
+    &__right {
+    }
 }
 .left-header-bottom {
     &__menu {
-    }
-
-    &__right {
     }
 }
 .menu-left-header-bottom {
@@ -161,6 +291,13 @@
             color: #999999;
             display: inline-block;
             line-height: 24px;
+            @media (max-width: 1150px) {
+                margin-right: 15px;
+            }
+            @media (max-width: 960px) {
+                background: none;
+                padding-left: 0px;
+            }
         }
 
         &_face {
@@ -170,6 +307,13 @@
             color: rgb(26, 185, 206);
             display: inline-block;
             line-height: 24px;
+            @media (max-width: 1150px) {
+                margin-right: 15px;
+            }
+            @media (max-width: 960px) {
+                background: none;
+                padding-left: 0px;
+            }
         }
 
         &_sms {
@@ -178,6 +322,13 @@
             color: rgb(26, 185, 206);
             display: inline-block;
             line-height: 20px;
+            .menu-left-header-bottom__link {
+                border-bottom: 1px solid;
+            }
+            @media (max-width: 960px) {
+                background: none;
+                padding-left: 0px;
+            }
         }
     }
     &__link {
@@ -191,26 +342,39 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: 600px) {
+            justify-content: flex-end;
+        }
     }
 
-    &__column{
+    &__column {
         margin-right: 40px;
+        @media (max-width: 1150px) {
+            margin-right: 15px;
+        }
+        @media (max-width: 600px) {
+            margin-right: 0px;
+        }
     }
-    &__column:nth-child(3){
+    &__column:nth-child(3) {
         margin: 0;
     }
 
     &__callback {
-        
         &_tel-back {
-            font-family: 'Roboto Light';
-            background: url(/img/icons/tel-back.png)no-repeat left;
+            font-family: "Roboto Light";
+            background: url(/img/icons/tel-back.png) no-repeat left;
             padding-left: 32px;
             line-height: 20px;
             display: inline-block;
             color: rgb(26, 185, 206);
-            span{
-                border-bottom: 1px dotted;
+            @media (max-width: 1030px) {
+                background: none;
+                padding-left: 0px;
+            }
+            span {
+                border-bottom: 1px solid;
+                white-space: nowrap;
             }
         }
     }
@@ -218,15 +382,27 @@
     &__calendar {
         line-height: 18px;
         display: inline-block;
-        padding-left: 37px;
         font-size: 12px;
-        font-family: 'Roboto Light';
+        font-family: "Roboto Light";
         color: #999999;
-        span{
-            font-family: 'Roboto Black';
+        white-space: nowrap;
+        span {
+            font-family: "Roboto Black";
         }
+
         &_calendar {
-            background: url(/img/icons/calendar.png)no-repeat left;
+            background: url(/img/icons/calendar.png) no-repeat left;
+            padding-left: 37px;
+            @media (max-width: 1030px) {
+                background: none;
+                padding-left: 0px;
+            }
+            @media (max-width: 900px) {
+                display: none;
+            }
+            @media (max-width: 600px) {
+                display: block;
+            }
         }
     }
 
@@ -236,25 +412,17 @@
         display: inline-block;
         position: relative;
         background: url(/img/icons/basket.png) 0 0 no-repeat;
-        span{
+        span {
             padding: 0px 11px;
             border-radius: 20px;
-            line-height:  25px;
+            line-height: 25px;
             background-color: #f68038;
             position: absolute;
             right: 0;
             font-size: 18px;
-            font-family: 'Roboto Bold';
+            font-family: "Roboto Bold";
             color: white;
-            transform: translate(70%,0px);
+            transform: translate(70%, 0px);
         }
     }
 }
-
-
-
-  
-
-
-
-
