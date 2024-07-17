@@ -1,5 +1,7 @@
 body.lock {
-    overflow: hidden;
+    @media (max-width: 992px) {
+        overflow: hidden;
+    }
 }
 .header {
     background: url(/img/bc.png) top no-repeat;
@@ -35,7 +37,6 @@ body.lock {
         flex: 0 0 190px;
         text-align: center;
         @media (min-width: 800px) {
-            align-self: flex-start;
             padding: 25px 0px 0px 0px;
         }
     }
@@ -44,6 +45,8 @@ body.lock {
     }
 
     &__logo {
+        position: relative;
+        z-index: 12;
     }
 
     &__contact {
@@ -104,15 +107,37 @@ body.lock {
     }
 
     &__body.active {
-        display: block;
-        .menu__list {
+        @media (max-width: 992px) {
             display: block;
-            text-align: center;
-            margin-top: 80px;
+            padding: 90px 0px 0px 0px;
+            .menu__list {
+                padding: 15px 0px 15px 0px;
+                display: block;
+                text-align: left;
+            }
+            .menu__link {
+                color: black;
+                font-size: 20px;
+            }
+        }
+    }
+    &__body.active::before {
+        @media (max-width: 992px) {
+            content: "";
+            background-color: #009db1;
+            width: 100%;
+            height: 90px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            @media (min-width:800px) {
+                height: 100px;
+            }
         }
     }
     &__body {
         @media (max-width: 992px) {
+            z-index: 1;
             display: none;
             position: fixed;
             width: 100%;
@@ -120,7 +145,7 @@ body.lock {
             top: 0;
             left: 0;
             padding: 0;
-            background-color: rgba(0, 0, 0, 0.637);
+            background-color: rgb(255, 255, 255);
             overflow: auto;
         }
     }
@@ -152,7 +177,7 @@ body.lock {
         padding: 0 22px;
         text-align: left;
         @media (max-width: 1065px) {
-            padding: 0px 11px;
+            padding: 0px 15px;
         }
         &:hover {
             background-color: rgb(6, 130, 146);
@@ -186,6 +211,8 @@ body.lock {
     }
 
     &__column {
+        z-index: 12;
+
         border-right: 1px solid white;
         padding: 0px 30px;
         @media (max-width: 900px) {
@@ -197,7 +224,7 @@ body.lock {
         @media (max-width: 1130px) {
             padding: 0px 15px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             padding: 0;
         }
     }
@@ -214,7 +241,7 @@ body.lock {
             @media (max-width: 1010px) {
                 background-size: 16px;
             }
-            @media (max-width: 600px) {
+            @media (max-width: 640px) {
                 background-image: none;
                 padding: 0;
             }
@@ -230,7 +257,7 @@ body.lock {
             font-size: 10px;
             margin-bottom: 2.5px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             display: none;
         }
     }
@@ -242,9 +269,11 @@ body.lock {
         @media (max-width: 1010px) {
             font-size: 14px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             font-size: 0;
             background: url(/img/icons/tel.png) left no-repeat;
+            z-index: 12;
+            position: relative;
             width: 19px;
             height: 25px;
             display: inline-block;
@@ -281,6 +310,10 @@ body.lock {
     &__list {
         display: flex;
         align-items: center;
+        @media (max-width: 640px) {
+            justify-content: space-between;
+            padding: 0px 15px;
+        }
     }
 
     &__item {
@@ -342,8 +375,11 @@ body.lock {
         display: flex;
         align-items: center;
         justify-content: center;
-        @media (max-width: 600px) {
-            justify-content: flex-end;
+        @media (max-width: 640px) {
+            justify-content: space-between;
+            gap: 15px;
+            padding: 0px 15px;
+            flex-wrap: wrap;
         }
     }
 
@@ -352,8 +388,8 @@ body.lock {
         @media (max-width: 1150px) {
             margin-right: 15px;
         }
-        @media (max-width: 600px) {
-            margin-right: 0px;
+        @media (max-width: 640px) {
+            margin: 0;
         }
     }
     &__column:nth-child(3) {
@@ -400,7 +436,7 @@ body.lock {
             @media (max-width: 900px) {
                 display: none;
             }
-            @media (max-width: 600px) {
+            @media (max-width: 640px) {
                 display: block;
             }
         }
@@ -422,7 +458,7 @@ body.lock {
             font-size: 18px;
             font-family: "Roboto Bold";
             color: white;
-            transform: translate(70%, 0px);
+            transform: translate(50%, 0px);
         }
     }
 }
