@@ -1,4 +1,4 @@
-body.lock {
+body._lock {
     @media (max-width: 992px) {
         overflow: hidden;
     }
@@ -10,9 +10,6 @@ body.lock {
     }
 
     &__top {
-        @media (max-width: 800px) {
-            background-color: #009db1;
-        }
         max-width: 1180px;
         margin: 0 auto;
     }
@@ -55,6 +52,7 @@ body.lock {
 .menu {
     &__icon {
         display: none;
+        margin-left: 15px;
 
         @media (max-width: 992px) {
             display: block;
@@ -88,7 +86,7 @@ body.lock {
                 top: calc(50% - 1px);
             }
 
-            .menu-open & {
+            &._active {
                 span {
                     width: 0;
                 }
@@ -106,12 +104,20 @@ body.lock {
         }
     }
 
-    &__body.active {
+    &__body {
         @media (max-width: 992px) {
-            display: block;
-            padding: 90px 0px 0px 15px;
+            z-index: 1;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            transition: top 0.5s ease 0s;
+            top: -100%;
+            padding: 90px 5px 0px 10px;
+            background-color: rgb(255, 255, 255);
+            overflow: auto;
             .menu__list {
-                padding: 15px 0px 10px 5px;
+                padding: 15px 0px 10px 0px;
                 display: block;
                 text-align: left;
             }
@@ -119,37 +125,26 @@ body.lock {
                 color: black;
                 font-size: 20px;
             }
-            .menu__link:hover{
+            .menu__link:hover {
                 color: white;
             }
         }
     }
-    &__body.active::before {
+    &__body._active {
         @media (max-width: 992px) {
+            top: 0;
+        }
+    }
+    &__body::before {
+        @media (max-width: 992px) {
+            z-index: 1;
             content: "";
-            background-color: #009db1;
+            background: url(/img/bc.png) top no-repeat;
             width: 100%;
             height: 90px;
             position: fixed;
-            top: 0;
             left: 0;
-            @media (min-width:800px) {
-                height: 100px;
-            }
-        }
-    }
-    &__body {
-        @media (max-width: 992px) {
-            z-index: 1;
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
-            left: 0;
-            padding: 0;
-            background-color: rgb(255, 255, 255);
-            overflow: auto;
         }
     }
 
@@ -273,6 +268,7 @@ body.lock {
             font-size: 14px;
         }
         @media (max-width: 640px) {
+            margin-right: 15px;
             font-size: 0;
             background: url(/img/icons/tel.png) left no-repeat;
             z-index: 12;
@@ -461,7 +457,7 @@ body.lock {
             font-size: 18px;
             font-family: "Roboto Bold";
             color: white;
-            transform: translate(50%, 0px);
+            transform: translate(40%, 0px);
         }
     }
 }
