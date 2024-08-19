@@ -1,5 +1,297 @@
 // @import '_functions.scss';
-@import '_fonts.scss';
-@import '_nullStyle.scss';
-@import '_header.scss';
-@import '_footer.scss';
+@import "_fonts.scss";
+@import "_nullStyle.scss";
+@import "_header.scss";
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+._container {
+    max-width: 1180px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+}
+.rub::after {
+    content: "₽";
+}
+
+.page {
+    padding: 160px 0px 0px 0px;
+    flex: 1 1 auto;
+    @media (max-width: 640px) {
+        padding-top: 97px;
+    }
+    &__container {
+        display: flex;
+    }
+
+    &__side {
+        flex: 0 0 260px;
+    }
+
+    &__menu {
+    }
+
+    &__content {
+        flex: 1 1 auto;
+        padding: 0px 0px 0px 30px;
+    }
+}
+.menu-page {
+    background-color: #009db2;
+    position: relative;
+    &__header {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        // position: relative;
+        // z-index: 2;
+    }
+
+    &__title {
+        color: white;
+        font-family: "Uni Sans Heavy Caps";
+        line-height: 35 / 30 * 100%;
+        font-size: 30px;
+        text-decoration: uppercase;
+        letter-spacing: 0.75px;
+    }
+
+    &__burger {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        background-color: #068292;
+        position: relative;
+        cursor: pointer;
+        z-index: 5;
+        padding: 10px 6px;
+        span {
+            transition: all 300ms ease 0ms;
+            top: calc(50% - 1px);
+            left: 0px;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            &:first-child {
+                top: 0px;
+            }
+
+            &:last-child {
+                top: auto;
+                bottom: 0;
+            }
+        }
+        &._active {
+            span {
+                transform: scale(0);
+                &:first-child {
+                    transform: rotate(-45deg);
+                    top: calc(50% - 1px);
+                }
+                &:last-child {
+                    transform: rotate(45deg);
+                    bottom: calc(50% - 1px);
+                }
+            }
+        }
+    }
+    &__lines {
+        height: 16px;
+        position: relative;
+    }
+    &__body {
+        display: none;
+        &._active{
+            display: block;
+        }
+        // position: relative;
+        // z-index: 2;
+    }
+    &__list {
+        > li {
+            border-bottom: 1px solid #1aa7b9;
+        }
+
+    }
+
+    &__parent {
+        .menu-page__link {
+            &::after {
+                content: "";
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                width: 14px;
+                height: 14px;
+                transform: translate(0px, -50%);
+                background: url(/img/icons/arrow.png) 0 0 no-repeat;
+            }
+        }
+        &._active{
+            .submenu-page__item{
+                z-index: 2;
+                transform: translate(0px,0px);
+            }
+            .menu-page__link{
+                background-color: #098494;
+            }
+        }
+    }
+
+    &__link {
+        letter-spacing: 0.3px;
+        font-size: 12px;
+        display: block;
+        font-family: "Roboto Light";
+        color: white;
+        padding: 12px 20px;
+        position: relative;
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: #098494;
+            }
+        }
+    }
+
+    &__submenu {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.submenu-page {
+    &__item {
+        width: 280px;
+        border: 2px solid #098494;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0%;
+        transition: all 0.3s ease 0s;
+        transform: translate(-100%,0px);
+    }
+
+    &__menu {
+        border-bottom: 1px solid #dedede;
+        padding: 20px 0;
+    }
+
+    &__link {
+        font-size: 12px;
+        font-family: "Roboto Light";
+        color: #1ab9ce;
+        letter-spacing: 0.3px;
+        padding: 10px 40px;
+        display: block;
+        @media (min-width: 992px) {
+            &:hover {
+                color: white;
+                background-color: #71c7d3;
+            }
+        }
+    }
+
+    &__product {
+        padding: 0 15px;
+    }
+}
+.item-product {
+    padding: 15px;
+    position: relative;
+    &__labels {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+
+    &__label {
+        margin: 0px 0px 10px 0px;
+        padding: 0px 15px;
+        text-transform: uppercase;
+        font-family: "Roboto Black";
+        height: 21px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fd8424;
+        border-radius: 15px;
+    }
+
+    &__image {
+        height: 195px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0px;
+        img {
+            max-width: 100%;
+            max-height: 175px;
+        }
+    }
+
+    &__body {
+        padding: 0px 10px;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-family: "Roboto Light";
+        color: rgb(54, 148, 159);
+        line-height: 24px;
+        display: inline-block;
+        margin: 0px 0px 5px 0px;
+        @media (min-width: 992px) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__old-price {
+        flex: 1 1 100%;
+        text-align: right;
+        font-size: 18px;
+        font-family: "Roboto Light";
+        color: rgb(153, 153, 153);
+        text-decoration: line-through;
+        &::after {
+            font-size: 14px;
+        }
+    }
+
+    &__add {
+        width: 40px;
+        height: 40px;
+        background: url(../img/icons/basket0.png) 0 0 no-repeat;
+    }
+
+    &__price {
+        font-size: 24px;
+        font-family: "Roboto Black";
+        color: rgb(51, 51, 51);
+        &::after {
+            font-size: 18px;
+        }
+    }
+}
+
+@import "_footer.scss";
