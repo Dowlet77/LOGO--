@@ -45,7 +45,7 @@ menuPageBurger.addEventListener('click', function (e) {
 
 
 
-
+//Slide Up
 let _slideUp = (target, duration = 500) => {
     target.style.transitionProperty = 'height, margin, padding';
     target.style.transitionDuration = duration + 'ms';
@@ -70,7 +70,7 @@ let _slideUp = (target, duration = 500) => {
         target.classList.remove('_slide');
     }, duration);
 }
-
+//Slide Down
 let _slideDown = (target, duration = 500) => {
     target.style.removeProperty('display');
     let display = window.getComputedStyle(target).display;
@@ -101,6 +101,7 @@ let _slideDown = (target, duration = 500) => {
         target.classList.remove('_slide');
     }, duration);
 }
+//Slide Toggle
 let _slideToggle = (target, duration = 500) => {
     if (!target.classList.contains('_slide')) {
         target.classList.add('_slide');
